@@ -12,7 +12,7 @@ const Banner = () => {
 
   return (
    <section
-  className="relative w-full min-h-screen bg-cover bg-center overflow-hidden flex items-center"
+  className="relative pb-2 w-full min-h-screen bg-cover bg-center overflow-hidden flex items-center"
   style={{
     backgroundImage: `linear-gradient(to right, rgba(173, 216, 230, 0.7), rgba(135, 206, 250, 0.7), rgba(70, 130, 180, 0.7)), url(${BackgroundImage})`,
   }}
@@ -48,17 +48,29 @@ const Banner = () => {
         Robin Hossen
       </motion.h1>
 
-        <motion.p
-        initial={{ x: -100, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
-        transition={{ duration: 1, delay: 0.3 }}
-        className="text-sky-600 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed lg:leading-loose max-w-full sm:max-w-xl"
-      >
-        <span className="text-4xl text-white font-bold">I'm</span> <span className="font-semibold text-primary">A Full Stack Web Developer </span> 
-         specializing in <span className="text-primary font-medium">React, Node.js, Express.js, MongoDB</span>, 
-        and modern web technologies including <span className="text-primary font-medium">HTML, CSS, JavaScript (ES6+), Tailwind CSS</span>. 
-        I deploy scalable and responsive applications using <span className="text-primary font-medium">Netlify</span> and <span className="text-primary font-medium">Vercel</span>.
-      </motion.p>
+       <motion.p
+  initial={{ x: -100, opacity: 0 }}
+  animate={{ x: 0, opacity: 1 }}
+  transition={{ duration: 1, delay: 0.3 }}
+  className="text-white text-sm sm:text-base md:text-xl lg:text-2xl leading-relaxed lg:leading-loose max-w-full sm:max-w-2xl"
+>
+  <span className="text-3xl font-bold text-amber-300">I'm</span>{" "}
+  <span className="font-semibold text-primary">
+    A Full Stack Web Developer
+  </span>{" "}
+  specializing in{" "}
+  <span className="text-primary font-medium">
+    React, Node.js, Express.js, MongoDB
+  </span>
+  , and modern web technologies including{" "}
+  <span className="text-primary font-medium">
+    HTML, CSS, JavaScript (ES6+), Tailwind CSS
+  </span>
+  . I deploy scalable and responsive applications using{" "}
+  <span className="text-primary font-medium">Netlify</span> and{" "}
+  <span className="text-primary font-medium">Vercel</span>.
+</motion.p>
+
 
       <motion.a
         href="/#contact"

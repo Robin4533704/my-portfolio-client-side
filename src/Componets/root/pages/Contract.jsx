@@ -1,6 +1,6 @@
-// Contact.jsx
 import React, { useState } from "react";
 import useAxios from "../hook/useAxios";
+import Loading from "./Loading"; // spinner component
 
 const Contact = () => {
   const { sendRequest, loading, error, data } = useAxios();
@@ -12,10 +12,9 @@ const Contact = () => {
     e.preventDefault();
     try {
       await sendRequest("/contact", "POST", form);
-      alert("Message sent successfully!");
       setForm({ name: "", email: "", message: "" });
     } catch (err) {
-      alert("Something went wrong!");
+      console.error(err);
     }
   };
 
@@ -28,7 +27,7 @@ const Contact = () => {
 
         <form
           onSubmit={handleSubmit}
-          className="flex flex-col gap-4 bg-white p-6 rounded-lg shadow-md"
+          className="flex flex-col gap-4 bg-white p-6 rounded-lg shadow-md relative"
         >
           <input
             type="text"
@@ -66,8 +65,12 @@ const Contact = () => {
             {loading ? "Sending..." : "Send Message"}
           </button>
 
+          {loading && <Loading/>}
+
           {error && <p className="text-red-500 mt-2">{error.message}</p>}
-          {data && <p className="text-green-500 mt-2">Message sent successfully!</p>}
+          {data && !loading && (
+            <p className="text-green-500 mt-2">Message sent successfully!</p>
+          )}
         </form>
       </div>
     </section>

@@ -29,7 +29,7 @@ const Navbar = () => {
           whileHover={{ scale: 1.05 }}
         >
           <motion.img
-            src="/just_logo-removebg-preview.png"
+            src="/logo_final-removebg-preview.png"
             alt="Robin Hossen Logo"
             className="rounded-full w-8 h-8 lg:w-10 lg:h-10 shadow-sm"
             whileHover={{ rotate: 15, scale: 1.15 }}
@@ -39,7 +39,7 @@ const Navbar = () => {
             className="text-2xl lg:text-3xl font-bold text-primary tracking-wide"
             whileHover={{ scale: 1.1 }}
           >
-            Robin
+            Robin Hossen
           </motion.span>
         </motion.div>
 

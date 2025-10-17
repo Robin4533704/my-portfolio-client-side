@@ -32,13 +32,14 @@ const AboutMe = () => {
           className="w-full lg:w-2/3 flex flex-col space-y-8 text-center lg:text-left"
         >
           <h2 className="text-3xl sm:text-4xl font-bold text-primary">About Me</h2>
-          <p className="text-gray-700 text-base sm:text-lg md:text-xl leading-relaxed lg:leading-loose">
-            Hi! I'm <span className="font-semibold text-primary">Robin Hossen</span>, a passionate
-            <span className="text-primary font-medium"> Full Stack Web Developer</span> skilled in building 
-            responsive, scalable web applications using <span className="font-semibold text-primary">
-            React, Node.js, Express.js, MongoDB</span> and modern tools. I love turning ideas into 
-            elegant, functional products and constantly learning new technologies.
-          </p>
+          <p className="text-gray-700 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed lg:leading-loose max-w-full sm:max-w-2xl">
+  Hi! I'm <span className="font-semibold text-primary">Robin Hossen</span>, a passionate{" "}
+  <span className="text-primary font-medium">Full Stack Web Developer</span> skilled in building{" "}
+  responsive, scalable web applications using{" "}
+  <span className="font-semibold text-primary">React, Node.js, Express.js, MongoDB</span> and modern tools.{" "}
+  I love turning ideas into elegant, functional products and constantly learning new technologies.
+</p>
+
 
           {/* Info Cards */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
