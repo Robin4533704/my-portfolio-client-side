@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FaMapMarkerAlt, FaEnvelope, FaPhone, FaCode, FaServer, FaTools } from "react-icons/fa";
-import ProfileImage from "../../../assets/image/imagerobin-removebg-preview.png";
+import ProfileImage from "../../../assets/image/bg-3.png";
 
 const AboutMe = () => {
   return (

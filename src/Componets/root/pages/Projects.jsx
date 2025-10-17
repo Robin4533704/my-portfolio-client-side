@@ -5,13 +5,13 @@ import { motion } from "framer-motion";
 const projects = [
   {
     name: "Portfolio Website",
-    image: "/e-commerc.png",
+    image: "/Screenshot 2025-10-17 125859.png",
     description: "My personal portfolio website built with React, Tailwind CSS, and Framer Motion.",
-    demo: "https://your-portfolio-demo.netlify.app",
-    github: "https://github.com/yourusername/portfolio",
+    demo:"https://timely-nasturtium-26dd88.netlify.app",
+    github:"https://github.com/Robin4533704/my-portfolio-client-side.git",
   },
   {
-    name: "Local Market-Parcel Delivery Platform",
+    name: "Parcel Delivery Platform",
     image: "/e-commerc.png",
     description:
       "A modern parcel delivery and logistics web app built with React, Node.js, Express, MongoDB, and Firebase Authentication. Features include real-time parcel tracking, rider assignment, payment integration, and admin dashboard for managing deliveries.",
@@ -27,7 +27,7 @@ const projects = [
     github: "https://github.com/Robin4533704/virture-book-clinet",
   },
   {
-    name: "HobbyHove – Hobby Sharing Platform",
+    name: "Hobby Sharing Platform",
     image: "/hobbyhobe.png",
     description:
       "HobbyHove is a creative social platform where users can share, explore, and connect through their hobbies and passions. Built with React, Tailwind CSS, Node.js, Express, and MongoDB. It includes user profiles, hobby categories, post sharing, and community interaction features.",

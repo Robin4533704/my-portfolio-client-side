@@ -11,7 +11,7 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await sendRequest("/api/contact", "POST", form);
+      await sendRequest("/contact", "POST", form);
       alert("Message sent successfully!");
       setForm({ name: "", email: "", message: "" });
     } catch (err) {
