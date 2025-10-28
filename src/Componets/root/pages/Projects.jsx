@@ -14,23 +14,25 @@ import {
   FaRocket,
   FaLightbulb,
   FaTools,
-  FaCode,
-  FaPalette
+  FaCode
 } from "react-icons/fa";
+
 import { 
   SiReact, 
+  SiJavascript, 
+  SiTailwindcss, 
   SiNodedotjs, 
   SiMongodb, 
   SiExpress, 
-  SiTailwindcss, 
-  SiFirebase,
+  SiFirebase, 
+  SiNextdotjs,
   SiStripe,
-  SiJavascript,
-  SiFigma,
-  SiAdobexd
+  SiFigma   // <-- add this
 } from "react-icons/si";
 
-// Project case studies data
+
+
+
 const caseStudies = [
   {
     id: 1,
@@ -75,9 +77,9 @@ const caseStudies = [
     },
     images: [
       "/e-commerc.png",
-      "/e-commerc.png", 
-      "/e-commerc.png",
-      "/e-commerc.png"
+      "/e-commenr4.png", 
+      "/e-commerc2.png",
+     
     ],
     demoLink: "https://superb-bublanina-e76917.netlify.app",
     githubLink: "https://github.com/Robin4533704/local-market-clientside",
@@ -127,9 +129,10 @@ const caseStudies = [
     },
     images: [
       "/book shop.png",
-      "/book shop.png",
-      "/book shop.png",
-      "/book shop.png"
+      "/vartual2.png",
+      "/vartual3.png",
+      "/vartual4.png",
+      
     ],
     demoLink: "https://golden-rugelach-d5b2de.netlify.app",
     githubLink: "https://github.com/Robin4533704/virture-book-clinet",
@@ -138,30 +141,30 @@ const caseStudies = [
     status: "Live"
   },
   {
-    id: 3,
-    title: "Hobby Sharing Platform",
-    category: "Social Community Application",
-    excerpt: "A creative social platform for sharing hobbies and connecting enthusiasts",
-    challenge: "People with niche hobbies often struggle to find like-minded communities and platforms to share their passions and learn from others.",
-    role: "Full Stack Developer & Project Architect",
+    id: 1,
+    title: "Web Blog Platform",
+    category: "Full Stack Web Application",
+    excerpt: "Responsive blog platform with user authentication, CRUD operations, and modern UI.",
+    challenge: "Creating a scalable, secure blog platform that allows multiple users to create, edit, and delete posts while maintaining a smooth UI experience.",
+    role: "Full Stack Developer",
     process: [
-      "User Persona Development",
-      "Feature Prioritization",
-      "System Architecture Design",
-      "Agile Development Sprints",
-      "User Testing & Feedback",
-      "Production Deployment"
+      "Requirement Analysis & Planning",
+      "Design Wireframes & UI Mockups",
+      "Frontend Development with React & Tailwind",
+      "Backend Development with Node.js, Express & MongoDB",
+      "Authentication & Authorization Integration",
+      "Testing & Deployment"
     ],
-    solution: "Built a social platform that enables users to share their hobbies, join communities, interact with other enthusiasts, and discover new passions through an intuitive interface.",
+    solution: "Developed a full-stack web blog platform with secure user authentication, post management, and responsive design to enhance user engagement and accessibility.",
     keyFeatures: [
-      "Hobby-based Community Groups",
-      "Post Sharing & Interaction",
-      "User Profile Customization",
-      "Real-time Notifications",
-      "Content Moderation System",
-      "Multi-media Support"
+      "User Registration & Login",
+      "Create, Edit, Delete Blog Posts",
+      "Responsive Design for Mobile & Desktop",
+      "Rich Text Editor for Posts",
+      "Commenting System",
+      "Search & Filter Blogs"
     ],
-    technologies: {
+     technologies: {
       frontend: [
         { name: "React", icon: SiReact, color: "text-blue-400" },
         { name: "JavaScript", icon: SiJavascript, color: "text-yellow-400" },
@@ -174,19 +177,19 @@ const caseStudies = [
       ],
       tools: [
         { name: "Firebase Auth", icon: SiFirebase, color: "text-yellow-500" },
-        { name: "Adobe XD", icon: SiAdobexd, color: "text-purple-500" },
-        { name: "UI Design", icon: FaPalette, color: "text-blue-500" }
+        { name: "Next.js", icon: SiNextdotjs, color: "text-gray-700" }
       ]
     },
     images: [
-      "/hobbyhobe.png",
-      "/hobbyhobe.png",
-      "/hobbyhobe.png",
-      "/hobbyhobe.png"
+      "/webblog1.png",
+      "/webblog2.png",
+      "/webblog3.png",
+      "/webblog4.png",
+      
     ],
-    demoLink: "https://subtle-entremet-54ed19.netlify.app",
-    githubLink: "https://github.com/Robin4533704/hobbyhove-clinet-side",
-    duration: "3 months",
+    demoLink: "https://vermillion-fudge-7cfb72.netlify.app",
+    githubLink: "https://github.com/Robin4533704/WebBLog-clientsite.git",
+    duration: "1 months",
     teamSize: "Solo Project",
     status: "Live"
   }

@@ -135,7 +135,7 @@ const AboutMe = () => {
                   href="tel:+8801866610742"
                   className="text-gray-600 text-sm hover:text-blue-600 transition-colors"
                 >
-                  +880 1866-610742
+                  +880 19-694533
                 </a>
               </motion.div>
 
@@ -255,75 +255,8 @@ const AboutMe = () => {
               </div>
             </motion.div>
 
-            {/* Personal Interests & Philosophy */}
-            <motion.div
-              initial={{ y: 30, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.6 }}
-              className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-lg border border-gray-200/50"
-            >
-              <h3 className="text-2xl font-bold text-gray-800 mb-6 flex items-center gap-3">
-                <FaHeart className="text-red-500" />
-                Interests & Philosophy
-              </h3>
-              
-              <div className="grid md:grid-cols-2 gap-8">
-                <div>
-                  <h4 className="font-semibold text-gray-800 mb-4">My Interests</h4>
-                  <div className="space-y-3">
-                    {personalInterests.map((interest, index) => (
-                      <motion.div
-                        key={interest}
-                        initial={{ opacity: 0, x: 20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.6 + index * 0.1 }}
-                        className="flex items-center gap-3 text-gray-600"
-                      >
-                        <div className="w-2 h-2 bg-green-400 rounded-full flex-shrink-0"></div>
-                        {interest}
-                      </motion.div>
-                    ))}
-                  </div>
-                </div>
-                
-                <div>
-                  <h4 className="font-semibold text-gray-800 mb-4">Development Philosophy</h4>
-                  <div className="space-y-3 text-gray-600">
-                    <p className="flex items-start gap-3">
-                      <span className="text-blue-500 mt-1">•</span>
-                      Write clean, maintainable code that tells a story
-                    </p>
-                    <p className="flex items-start gap-3">
-                      <span className="text-green-500 mt-1">•</span>
-                      Focus on user experience and performance
-                    </p>
-                    <p className="flex items-start gap-3">
-                      <span className="text-purple-500 mt-1">•</span>
-                      Continuous learning and adaptation to new technologies
-                    </p>
-                    <p className="flex items-start gap-3">
-                      <span className="text-orange-500 mt-1">•</span>
-                      Collaboration and knowledge sharing with the community
-                    </p>
-                  </div>
-                </div>
-              </div>
-              
-              <motion.div
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 1 }}
-                className="mt-6 p-4 bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl border border-blue-200"
-              >
-                <p className="text-gray-700 italic text-center">
-                  "Code is poetry, and every project is a story waiting to be told. I believe in creating 
-                  digital experiences that not only function flawlessly but also inspire and delight users."
-                </p>
-              </motion.div>
-            </motion.div>
+      
+           
 
             {/* Call to Action */}
             <motion.div
@@ -350,7 +283,7 @@ const AboutMe = () => {
                     Get In Touch
                   </motion.a>
                   <motion.a
-                    href="https://github.com/robinhossen"
+                    href="https://github.com/robin4533704"
                     target="_blank"
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.05 }}

@@ -17,7 +17,6 @@ const Home = () => {
            <Skills/>
            <Projects/>
            <PortfolioGallery/>
-          
             <IndustryServed/>
            <Contact/>
           
