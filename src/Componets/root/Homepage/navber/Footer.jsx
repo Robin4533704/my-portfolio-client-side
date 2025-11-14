@@ -22,7 +22,7 @@ const Footer = () => {
 
   const socialLinks = [
     { icon: FaGithub, href: "https://github.com/Robin4533704", label: "GitHub" },
-    { icon: FaLinkedin, href: "https://linkedin.com/in/robin-hossen", label: "LinkedIn" },
+    { icon: FaLinkedin, href: "https://www.linkedin.com/in/hossain-robin-408a21339", label: "LinkedIn" },
     { icon: FaEnvelope, href: "mailto:robinhossen8428@gmail.com", label: "Email" },
   ];
 

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Particles from "@tsparticles/react";
 import { loadFull } from "tsparticles";
-import { FaDownload, FaGithub, FaLinkedin, FaEnvelope, FaArrowDown, FaCode,  } from "react-icons/fa";
+import { FaDownload, FaGithub, FaLinkedin, FaEnvelope, FaArrowDown, FaCode } from "react-icons/fa";
 import { SiTypescript, SiNextdotjs, SiTailwindcss } from "react-icons/si";
 import BannerImage from "../../../../assets/image/imagerobin-removebg-preview.png";
 import BackgroundImage from "../../../../assets/image/v915-red-blue.png";
@@ -55,10 +55,10 @@ const Banner = () => {
   };
 
   const downloadResume = () => {
-    const resumeUrl = "/robin-hossen-resume.pdf";
+    const resumeUrl = "/Black and Gray Simple Graphic Designer Resume (1).pdf";
     const link = document.createElement("a");
     link.href = resumeUrl;
-    link.download = "Robin_Hossen_FullStack_Developer.pdf";
+    link.download = "Robin_Hossen_Resume.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -66,7 +66,7 @@ const Banner = () => {
 
   const socialLinks = [
     { icon: FaGithub, href: "https://github.com/robin-hossen", color: "hover:text-gray-400", label: "GitHub" },
-    { icon: FaLinkedin, href: "https://linkedin.com/in/robin-hossen", color: "hover:text-blue-400", label: "LinkedIn" },
+    { icon: FaLinkedin, href: "https://www.linkedin.com/in/hossain-robin-408a21339", color: "hover:text-blue-400", label: "LinkedIn" },
     { icon: FaEnvelope, href: "mailto:robin@example.com", color: "hover:text-red-400", label: "Email" },
   ];
 
@@ -356,8 +356,8 @@ const Banner = () => {
             className="grid grid-cols-3 gap-6 mt-8 text-gray-300"
           >
             {[
-              { number: "50+", label: "Projects" },
-              { number: "2+", label: "Years Exp" },
+              { number: "18+", label: "Projects" },
+              { number: "1+", label: "Years Exp" },
               { number: "100%", label: "Satisfaction" }
             ].map((stat, index) => (
               <div key={stat.label} className="text-center">
@@ -396,13 +396,28 @@ const Banner = () => {
               }}
             >
               <div className="relative">
-                <motion.img
-                  src={BannerImage}
-                  alt="Robin Hossen - Full Stack Developer"
-                  className="w-64 sm:w-80 md:w-96 lg:w-full max-w-md rounded-3xl shadow-2xl border-8 border-white/20 backdrop-blur-sm"
-                  whileHover={{ scale: 1.02 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                />
+                {/* Professional Image with Gradient Border */}
+                <div className="relative p-3 bg-gradient-to-r from-blue-500 via-purple-600 to-pink-500 rounded-full shadow-2xl">
+                  {/* Inner Border */}
+                  <div className="p-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
+                    {/* Main Image */}
+                    <motion.img
+                      src={BannerImage}
+                      alt="Robin Hossen - Full Stack Developer"
+                      className="w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 lg:w-[28rem] lg:h-[28rem] rounded-full object-cover shadow-2xl border-4 border-white/30 backdrop-blur-sm"
+                      whileHover={{ scale: 1.02 }}
+                      transition={{ type: "spring", stiffness: 300 }}
+                    />
+                  </div>
+                  
+                  {/* Animated Border Ring */}
+                  <motion.div
+                    className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 via-purple-600 to-pink-500 opacity-75"
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                    style={{ zIndex: -1 }}
+                  />
+                </div>
                 
                 {/* Floating Tech Badges */}
                 <motion.div
@@ -419,6 +434,23 @@ const Banner = () => {
                   transition={{ duration: 4, repeat: Infinity, delay: 2 }}
                 >
                   🟢 Node.js
+                </motion.div>
+
+                {/* Additional Floating Elements */}
+                <motion.div
+                  className="absolute top-8 -right-6 px-3 py-2 bg-green-500/90 backdrop-blur-sm rounded-full text-white text-xs font-medium border border-white/20 shadow-lg"
+                  animate={{ y: [0, -8, 0], rotate: [0, 5, 0] }}
+                  transition={{ duration: 5, repeat: Infinity, delay: 0.5 }}
+                >
+                  TypeScript
+                </motion.div>
+
+                <motion.div
+                  className="absolute bottom-12 -left-6 px-3 py-2 bg-orange-500/90 backdrop-blur-sm rounded-full text-white text-xs font-medium border border-white/20 shadow-lg"
+                  animate={{ y: [0, 8, 0], rotate: [0, -5, 0] }}
+                  transition={{ duration: 5, repeat: Infinity, delay: 1.5 }}
+                >
+                  MongoDB
                 </motion.div>
               </div>
             </motion.div>
@@ -448,6 +480,32 @@ const Banner = () => {
                 ease: "easeInOut",
               }}
             />
+
+            {/* Rotating Tech Icons Around Image */}
+            <motion.div
+              className="absolute inset-0"
+              animate={{ rotate: 360 }}
+              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+            >
+              {[SiNextdotjs, SiTypescript, SiTailwindcss, FaCode].map((Icon, index) => (
+                <motion.div
+                  key={index}
+                  className="absolute"
+                  style={{
+                    top: '50%',
+                    left: '50%',
+                    transform: `rotate(${index * 90}deg) translate(160px) rotate(-${index * 90}deg)`
+                  }}
+                >
+                  <motion.div
+                    className="p-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20"
+                    whileHover={{ scale: 1.2 }}
+                  >
+                    <Icon className="text-white text-lg" />
+                  </motion.div>
+                </motion.div>
+              ))}
+            </motion.div>
           </div>
         </motion.div>
       </div>

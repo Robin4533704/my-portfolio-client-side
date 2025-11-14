@@ -27,10 +27,10 @@ const AboutMe = () => {
   // Handle resume download
   const handleDownloadResume = () => {
     // Replace with your actual resume file path
-    const resumeUrl = "/resume-robin-hossen.pdf";
+    const resumeUrl = "/Black and Gray Simple Graphic Designer Resume (1).pdf";
     const link = document.createElement("a");
     link.href = resumeUrl;
-    link.download = "Robin_Hossen_Resume.pdf";
+    link.download = "/Black and Gray Simple Graphic Designer Resume (1).pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -294,7 +294,7 @@ const AboutMe = () => {
                     GitHub
                   </motion.a>
                   <motion.a
-                    href="https://linkedin.com/in/robinhossen"
+                    href="https://www.linkedin.com/in/hossain-robin-408a21339"
                     target="_blank"
                     rel="noopener noreferrer"
                     whileHover={{ scale: 1.05 }}

@@ -307,7 +307,7 @@ const Skills = () => {
           </div>
           
           <div className="bg-gradient-to-br from-orange-500 to-red-500 rounded-3xl p-6 text-white text-center">
-            <div className="text-3xl font-bold mb-2">2+</div>
+            <div className="text-3xl font-bold mb-2">1+</div>
             <div className="text-orange-100">Years Experience</div>
           </div>
         </motion.div>

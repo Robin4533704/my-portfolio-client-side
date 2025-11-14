@@ -40,7 +40,7 @@ const Contact = () => {
     {
       name: "LinkedIn",
       icon: FaLinkedin,
-      url: "https://linkedin.com/in/robinhossen",
+      url: "https://www.linkedin.com/in/hossain-robin-408a21339",
       color: "text-blue-600 hover:bg-blue-600"
     },
     {

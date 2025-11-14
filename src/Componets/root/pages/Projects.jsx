@@ -76,12 +76,11 @@ const caseStudies = [
       ]
     },
     images: [
-      "/e-commerc.png",
-      "/e-commenr4.png", 
-      "/e-commerc2.png",
+      "/e-commers.png",
+    
      
     ],
-    demoLink: "https://superb-bublanina-e76917.netlify.app",
+    demoLink: "https://shimmering-melomakarona-fc4175.netlify.app",
     githubLink: "https://github.com/Robin4533704/local-market-clientside",
     duration: "3 months",
     teamSize: "Solo Project",
@@ -128,10 +127,8 @@ const caseStudies = [
       ]
     },
     images: [
-      "/book shop.png",
-      "/vartual2.png",
-      "/vartual3.png",
-      "/vartual4.png",
+      "/book shops.png",
+    ,
       
     ],
     demoLink: "https://golden-rugelach-d5b2de.netlify.app",
@@ -181,10 +178,8 @@ const caseStudies = [
       ]
     },
     images: [
-      "/webblog1.png",
-      "/webblog2.png",
-      "/webblog3.png",
-      "/webblog4.png",
+      "/web blogs.png",
+     
       
     ],
     demoLink: "https://vermillion-fudge-7cfb72.netlify.app",

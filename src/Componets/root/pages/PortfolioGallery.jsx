@@ -17,10 +17,10 @@ const projects = [
     title: "E-Commerce Platform",
     category: "fullstack",
     skills: ["react", "node", "mongodb", "express"],
-    image: "/e-commerc.png",
+    image: "/e-commers.png",
     description: "A complete e-commerce solution with product management, cart, and payment integration.",
-    demo: "https://superb-bublanina-e76917.netlify.app",
-    github: "https://github.com/Programming-Hero-Web-Course4/b11a12-client-side-Robin4533704",
+    demo: "https://clinquant-mermaid-1d023e.netlify.app",
+    github: "https://github.com/Robin4533704/baby-shop-clientsite.git",
     featured: true
   },
   {
@@ -28,9 +28,9 @@ const projects = [
     title: "Portfolio Website",
     category: "frontend",
     skills: ["react", "javascript", "tailwind"],
-    image: "/myprotfolio111.png",
+    image: "/Screenshot 2025-11-14 231349.png",
     description: "Modern portfolio with smooth animations and responsive design.",
-    demo: "https://stupendous-sable-470425.netlify.app",
+    demo: "https://imaginative-kheer-943bb1.netlify.app",
     github: "https://github.com/Robin4533704/my-portfolio-client-side.git",
     featured: false
   },
@@ -39,9 +39,9 @@ const projects = [
     title: "Parcel Delivery System",
     category: "fullstack",
     skills: ["react", "node", "mongodb", "firebase"],
-    image: "/e-commerc.png",
+    image: "/parcel delivery.png",
     description: "Logistics platform with real-time tracking and management system.",
-    demo: "https://superb-bublanina-e76917.netlify.app",
+    demo: "https://shimmering-melomakarona-fc4175.netlify.app",
     github: "https://github.com/Robin4533704/local-market-clientside",
     featured: true
   },
@@ -50,7 +50,7 @@ const projects = [
     title: "Virtual Book Store",
     category: "fullstack",
     skills: ["react", "node", "mongodb", "express"],
-    image: "/book shop.png",
+    image: "/book shops.png",
     description: "Online bookstore with categorization and user management.",
     demo: "https://golden-rugelach-d5b2de.netlify.app",
     github: "https://github.com/Robin4533704/virture-book-clinet",
@@ -61,7 +61,7 @@ const projects = [
     title: "Hobby Sharing Platform",
     category: "fullstack",
     skills: ["react", "node", "mongodb", "tailwind"],
-    image: "/hobbyhobe.png",
+    image: "/hobby hove.png",
     description: "Social platform for sharing hobbies and community interaction.",
     demo: "https://subtle-entremet-54ed19.netlify.app",
     github: "https://github.com/Robin4533704/hobbyhove-clinet-side",
@@ -72,34 +72,34 @@ const projects = [
     title: "Blog Platform",
     category: "fullstack",
     skills: ["react", "node", "mongodb", "express"],
-    image: "/blogs.png",
+    image: "/web blog2.png",
     description: "Responsive blog with CRUD operations and user authentication.",
     demo: "https://vermillion-fudge-7cfb72.netlify.app",
     github: "https://github.com/Robin4533704/WebBLog-clientsite.git",
     featured: false
   },
-  {
-    id: 7,
-    title: "Task Management App",
-    category: "frontend",
-    skills: ["react", "javascript", "tailwind"],
-    image: "/Screenshot 2025-10-17 125859.png",
-    description: "Productive task management application with drag & drop.",
-    demo: "#",
-    github: "#",
-    featured: false
-  },
-  {
-    id: 8,
-    title: "Weather Dashboard",
-    category: "frontend",
-    skills: ["react", "javascript"],
-    image: "/book shop.png",
-    description: "Real-time weather information with beautiful UI.",
-    demo: "#",
-    github: "#",
-    featured: false
-  }
+  // {
+  //   id: 7,
+  //   title: "Task Management App",
+  //   category: "frontend",
+  //   skills: ["react", "javascript", "tailwind"],
+  //   image: "/Screenshot 2025-10-17 125859.png",
+  //   description: "Productive task management application with drag & drop.",
+  //   demo: "#",
+  //   github: "#",
+  //   featured: false
+  // },
+  // {
+  //   id: 8,
+  //   title: "Weather Dashboard",
+  //   category: "frontend",
+  //   skills: ["react", "javascript"],
+  //   image: "/book shop.png",
+  //   description: "Real-time weather information with beautiful UI.",
+  //   demo: "#",
+  //   github: "#",
+  //   featured: false
+  // }
 ];
 
 const categories = [
