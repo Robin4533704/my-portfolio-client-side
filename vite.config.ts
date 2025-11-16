@@ -13,3 +13,4 @@ export default defineConfig({
     tailwindcss(), // ← এই লাইনটা react() এর বাইরে থাকবে
   ],
 })
+

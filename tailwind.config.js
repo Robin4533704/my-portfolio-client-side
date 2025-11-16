@@ -1,20 +1,14 @@
-/** @type {import('tailwindcss').Config} */
+// tailwind.config.js
+import daisyui from "daisyui";
+
 export default {
-  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
-  darkMode: 'class', // এই লাইনটি নিশ্চিত করুন
-  theme: {
-    extend: {
-      // আপনার custom theme extensions এখানে থাকতে পারে
-    },
-  },
-  plugins: [
-    require("daisyui"),
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
   ],
-  daisyui: {
-    themes: ["light", "dark"], // শুধুমাত্র light এবং dark themes
-    darkTheme: "dark", // explicitly dark theme সেট করুন
-    base: true,
-    styled: true,
-    utils: true,
+  darkMode: "class", // important
+  theme: {
+    extend: {},
   },
-}
+  plugins: [daisyui],
+};
