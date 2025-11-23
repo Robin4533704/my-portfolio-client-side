@@ -52,7 +52,7 @@ const Banner = () => {
 
   const downloadResume = () => {
     const link = document.createElement("a");
-    link.href = "/Black and Gray Simple Graphic Designer Resume (1).pdf";
+    link.href = "/Untitled (1).pdf";
     link.download = "Robin_Hossen_Resume.pdf";
     document.body.appendChild(link);
     link.click();
@@ -280,7 +280,7 @@ const Banner = () => {
           >
             {[
               { number: "18+", label: "Projects" },
-              { number: "1+", label: "Years Exp" },
+              { number: "2+", label: "Years Exp" },
               { number: "100%", label: "Satisfaction" },
             ].map((stat, index) => (
               <div key={stat.label} className="text-center">

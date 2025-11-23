@@ -1,35 +1,23 @@
-/* 
-@import "tailwindcss";
-@custom-variant dark (&:where(.dark, .dark *));
-@plugin "daisyui";
-@theme{
-  --color-primary: #0bdbb6;
-  --color-primary-dark: #0d0d0d;
-}
- */
 
- /* @import "tailwindcss";
-@custom-variant dark (&:where(.dark, .dark *)); */
+ @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Custom colors define করতে হলে :root ব্যবহার করা ঠিক */
+/* Custom colors */
 :root {
   --color-primary: #0bdbb6;
   --color-primary-dark: #0d0d0d;
 }
 
-/* body তে light/dark apply করার জন্য Tailwind এর utilities ব্যবহার করো */
+/* Light mode body */
 body {
-  @apply bg-white text-black; /* light mode default */
+  @apply bg-white text-black;
 }
 
-/* dark mode */
+/* Dark mode */
 .dark body {
   @apply bg-black text-white;
 }
-
-
-
 

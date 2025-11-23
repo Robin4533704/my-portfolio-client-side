@@ -24,7 +24,7 @@ const AboutMe = () => {
   ];
 
   const handleDownloadResume = () => {
-    const resumeUrl = "/Black and Gray Simple Graphic Designer Resume (1).pdf";
+    const resumeUrl = "/Untitled (1).pdf";
     const link = document.createElement("a");
     link.href = resumeUrl;
     link.download = "Robin_Hossen_Resume.pdf";
