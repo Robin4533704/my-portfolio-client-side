@@ -4,13 +4,13 @@ import {
   FaGraduationCap,
   FaBriefcase,
   FaUniversity,
-  FaRocket,
   FaLaptopCode,
   FaCode,
   FaServer,
   FaAward,
   FaCalendarAlt,
-  FaMapMarkerAlt
+  FaMapMarkerAlt,
+  FaCheckCircle
 } from "react-icons/fa";
 
 const ExperienceEducation = () => {
@@ -22,18 +22,15 @@ const ExperienceEducation = () => {
       company: "Solution Point",
       duration: "July 2024 – Present",
       location: "Remote, Bangladesh",
-      type: "Full-time Position",
-      description: "Developing and maintaining full-stack web applications using modern technologies. Leading frontend development while collaborating on backend architecture.",
+      description: "Leading frontend development and architecting scalable MERN applications with a focus on performance and security.",
       achievements: [
-        "Built 5+ production-ready web applications with responsive designs",
-        "Implemented secure JWT authentication and authorization systems",
-        "Optimized application performance, reducing load time by 40%",
-        "Integrated RESTful APIs and third-party services",
-        "Mentored 2 junior developers in React best practices"
+        "Built 5+ production-ready web applications with 95% Lighthouse score",
+        "Implemented secure JWT-based multi-role authentication",
+        "Optimized database queries, reducing API response time by 40%"
       ],
-      technologies: ["React.js", "Node.js", "Express.js", "MongoDB", "Tailwind CSS", "JWT", "REST APIs"],
-      icon: <FaLaptopCode className="text-white" />,
-      color: "green",
+      technologies: ["React.js", "Node.js", "Express.js", "MongoDB", "Tailwind CSS"],
+      icon: <FaLaptopCode />,
+      color: "from-blue-500 to-cyan-500",
       status: "current"
     },
     {
@@ -42,38 +39,15 @@ const ExperienceEducation = () => {
       company: "Programming Hero",
       duration: "August 2024 – Present",
       location: "Dhaka, Bangladesh (Hybrid)",
-      type: "Specialized Training Role",
-      description: "Advanced backend development focusing on scalable architecture, database design, and API development.",
+      description: "Specialized focus on server-side logic, database management, and real-time communication systems.",
       achievements: [
-        "Developed scalable microservices architecture",
-        "Implemented MongoDB aggregation pipelines for complex queries",
-        "Built real-time features using WebSocket connections",
-        "Created comprehensive API documentation",
-        "Reduced server response time by 60% through optimization"
+        "Architected real-time notification system using Socket.io",
+        "Designed complex MongoDB aggregation pipelines for analytics",
+        "Integrated third-party payment gateways and cloud services"
       ],
-      technologies: ["Node.js", "Express", "MongoDB", "Mongoose", "Socket.io", "Jest", "Docker"],
-      icon: <FaServer className="text-white" />,
-      color: "blue",
-      status: "current"
-    },
-    {
-      id: 3,
-      position: "Frontend Developer",
-      company: "Freelance Projects",
-      duration: "January 2024 – Present",
-      location: "Remote",
-      type: "Contract Projects",
-      description: "Delivered high-quality frontend solutions for various clients, focusing on user experience and modern design principles.",
-      achievements: [
-        "Completed 10+ client projects with 100% satisfaction rate",
-        "Developed reusable component libraries",
-        "Implemented responsive designs for all device sizes",
-        "Integrated with multiple backend APIs",
-        "Improved website accessibility scores by 35%"
-      ],
-      technologies: ["React", "TypeScript", "Tailwind CSS", "Framer Motion", "Redux", "GraphQL"],
-      icon: <FaCode className="text-white" />,
-      color: "purple",
+      technologies: ["Node.js", "MongoDB", "Mongoose", "Socket.io", "Docker"],
+      icon: <FaServer />,
+      color: "from-purple-500 to-pink-500",
       status: "current"
     }
   ];
@@ -82,195 +56,172 @@ const ExperienceEducation = () => {
   const educationData = [
     {
       id: 1,
-      degree: "Master of Arts in Political Science",
-      institution: "Comilla Victory Government College",
-      location: "Chittagong, Bangladesh",
+      degree: "Master of Arts (M.A.)",
+      institution: "Cumilla Victory Government College",
       duration: "2021 - 2022",
-      grade: "CGPA: 2.89/4.0",
-      achievements: ["Dean's List Award", "Research Paper Publication"],
-      icon: <FaUniversity className="text-white" />,
-      color: "blue"
+      location: "Cumilla, Bangladesh",
+      icon: <FaUniversity />,
+      color: "from-emerald-500 to-teal-500"
     },
     {
       id: 2,
-      degree: "Bachelor of Arts in Political Science",
+      degree: "Bachelor of Arts (B.A.)",
       institution: "Nawab Faizunnesa Government College",
-      location: "Chittagong, Bangladesh",
-      duration: "2018 - 2021",
-      grade: "CGPA: 3.03/4.0",
-      achievements: ["Academic Excellence Award", "Student Leadership"],
-      icon: <FaUniversity className="text-white" />,
-      color: "blue"
-    },
-    {
-      id: 3,
-      degree: "Higher Secondary Certificate (HSC)",
-      institution: "Gajimura Kamil Madrasha",
-      location: "Laksam, Comilla",
-      duration: "2018 - 2020",
-      grade: "GPA: 3.86/5.0",
-      achievements: ["Science Group Topper", "Extracurricular Excellence"],
-      icon: <FaGraduationCap className="text-white" />,
-      color: "green"
-    },
-    {
-      id: 4,
-      degree: "Secondary School Certificate (SSC)",
-      institution: "Gajimura Kamil Madrasha",
-      location: "Laksam, Comilla",
-      duration: "2014 - 2015",
-      grade: "GPA: 4.94/5.0",
-      achievements: ["Science Group First Position", "Board Scholarship"],
-      icon: <FaGraduationCap className="text-white" />,
-      color: "purple"
+      duration: "2017 - 2021",
+      location: "Cumilla, Bangladesh",
+      icon: <FaUniversity />,
+      color: "from-blue-500 to-indigo-500"
     }
   ];
-
-  // 🏆 Certifications & Awards
-  const certifications = [
-    {
-      id: 1,
-      name: "Complete Web Development Bootcamp",
-      issuer: "Programming Hero",
-      date: "2024",
-      icon: <FaAward className="text-yellow-500" />
-    },
-    {
-      id: 2,
-      name: "React Developer Certification",
-      issuer: "Meta via Coursera",
-      date: "2024",
-      icon: <FaAward className="text-blue-500" />
-    },
-    {
-      id: 3,
-      name: "Backend Development Specialization",
-      issuer: "University of Michigan",
-      date: "2024",
-      icon: <FaAward className="text-green-500" />
-    }
-  ];
-
-  const getColorClasses = (color) => {
-    const colorMap = {
-      blue: "from-blue-500 to-blue-600",
-      green: "from-green-500 to-green-600",
-      purple: "from-purple-500 to-purple-600",
-      orange: "from-orange-500 to-orange-600",
-    };
-    return colorMap[color] || "from-gray-500 to-gray-600";
-  };
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { staggerChildren: 0.2 } }
-  };
-
-  const itemVariants = { hidden: { y: 20, opacity: 0 }, visible: { y: 0, opacity: 1, transition: { duration: 0.6 } } };
 
   return (
-    <section
-      id="experience"
-      className="w-full bg-gradient-to-br from-gray-50 dark:from-gray-900 to-blue-50/20 dark:to-gray-800 py-6 lg:py-8"
-    >
+    <section id="resume" className="w-full py-20 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <motion.div
-          initial={{ y: 50, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
+        
+        {/* Section Header */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-4">
-            Professional Journey
+          <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-4">
+            Experience & <span className="text-blue-600">Education</span>
           </h2>
-          <p className="text-xl text-gray-900 dark:text-gray-50 max-w-3xl mx-auto mb-6">
-            Combining technical expertise with continuous learning to deliver exceptional digital solutions
+          <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+            My professional journey and academic background in the world of technology.
           </p>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full"></div>
+          <div className="mt-4 w-20 h-1.5 bg-blue-600 mx-auto rounded-full"></div>
         </motion.div>
 
-        {/* Experience */}
-        <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true }} className="mb-20">
-          <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-8 flex items-center gap-3">
-            <div className="p-2 bg-gradient-to-r from-green-500 to-green-600 rounded-lg">
-              <FaBriefcase className="text-white text-xl" />
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          
+          {/* Left Side: Experience */}
+          <div>
+            <div className="flex items-center gap-4 mb-10">
+              <div className="p-3 bg-blue-100 dark:bg-blue-900/30 rounded-2xl">
+                <FaBriefcase className="text-2xl text-blue-600" />
+              </div>
+              <h3 className="text-2xl font-bold dark:text-white">Work Experience</h3>
             </div>
-            Professional Experience
-          </h3>
 
-          <div className="space-y-8">
-            {experienceData.map((exp, idx) => (
-              <motion.div key={exp.id} variants={itemVariants} className="relative group">
-                {/* Timeline line */}
-                <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-green-200 via-blue-200 to-purple-200 dark:from-green-700 dark:via-blue-700 dark:to-purple-700"></div>
-
-                <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg dark:shadow-gray-900/50 border border-gray-200/50 dark:border-gray-700/50 hover:shadow-2xl transition-all duration-500 ml-8 relative overflow-hidden">
-                  {/* Gradient BG */}
-                  <div className={`absolute inset-0 bg-gradient-to-r ${getColorClasses(exp.color)} opacity-5 group-hover:opacity-10 transition-opacity duration-300`}></div>
-
-                  {/* Icon */}
-                  <div className={`absolute -left-8 top-6 w-12 h-12 rounded-xl bg-gradient-to-r ${getColorClasses(exp.color)} text-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300 z-10`}>
+            <div className="space-y-12 relative before:absolute before:left-8 before:top-2 before:bottom-2 before:w-0.5 before:bg-gray-200 dark:before:bg-gray-700">
+              {experienceData.map((exp, index) => (
+                <motion.div 
+                  key={exp.id}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  className="relative pl-16"
+                >
+                  {/* Timeline Dot */}
+                  <div className={`absolute left-0 w-16 h-16 rounded-full border-4 border-gray-50 dark:border-gray-900 bg-gradient-to-br ${exp.color} flex items-center justify-center text-white text-xl z-10 shadow-xl`}>
                     {exp.icon}
                   </div>
 
-                  {/* Current Badge */}
-                  {exp.status === "current" && (
-                    <div className="absolute top-4 right-4">
-                      <span className="px-3 py-1 bg-green-100 dark:bg-green-700 text-green-800 dark:text-green-200 text-xs font-medium rounded-full">
-                        Current Role
+                  <div className="bg-white dark:bg-gray-800 p-6 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-700 hover:shadow-xl hover:border-blue-500/30 transition-all duration-300 group">
+                    <div className="flex flex-wrap justify-between items-start gap-2 mb-4">
+                      <div>
+                        <h4 className="text-xl font-bold text-gray-900 dark:text-white group-hover:text-blue-600 transition-colors">
+                          {exp.position}
+                        </h4>
+                        <p className="text-blue-600 font-medium">{exp.company}</p>
+                      </div>
+                      <span className="text-xs font-bold uppercase tracking-wider px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-500 dark:text-gray-400 rounded-full">
+                        {exp.duration}
                       </span>
                     </div>
-                  )}
 
-                  {/* Header */}
-                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-4">
-                    <div>
-                      <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-1">{exp.position}</h4>
-                      <p className="text-lg font-semibold text-green-600 dark:text-green-400 mb-2">{exp.company}</p>
-                    </div>
-                    <div className="text-sm text-gray-500 dark:text-gray-300 mt-1 sm:mt-0 sm:text-right">
-                      <div className="flex items-center gap-1 mb-1"><FaCalendarAlt className="w-3 h-3" />{exp.duration}</div>
-                      <div className="flex items-center gap-1"><FaMapMarkerAlt className="w-3 h-3" />{exp.location}</div>
-                    </div>
-                  </div>
+                    <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">
+                      {exp.description}
+                    </p>
 
-                  <p className="text-gray-700 dark:text-gray-200 mb-4 leading-relaxed">{exp.description}</p>
-
-                  {/* Achievements */}
-                  <div className="mb-4">
-                    <h5 className="font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
-                      <FaAward className="text-yellow-500" /> Key Achievements:
-                    </h5>
-                    <ul className="space-y-2">
+                    <ul className="space-y-2 mb-6">
                       {exp.achievements.map((ach, i) => (
-                        <li key={i} className="flex items-start gap-2 text-gray-600 dark:text-gray-300">
-                          <span className="w-1.5 h-1.5 bg-green-500 dark:bg-green-400 rounded-full mt-2 flex-shrink-0"></span>
+                        <li key={i} className="flex items-start gap-2 text-sm text-gray-700 dark:text-gray-300">
+                          <FaCheckCircle className="text-blue-500 mt-1 flex-shrink-0" />
                           {ach}
                         </li>
                       ))}
                     </ul>
-                  </div>
 
-                  {/* Technologies */}
-                  <div>
-                    <h5 className="font-semibold text-gray-900 dark:text-white mb-3">Technologies & Tools:</h5>
                     <div className="flex flex-wrap gap-2">
-                      {exp.technologies.map((tech, i) => (
-                        <span key={i} className="px-3 py-1.5 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-full text-sm font-medium text-gray-700 dark:text-gray-200 hover:shadow-md transition-shadow duration-300">
+                      {exp.technologies.map(tech => (
+                        <span key={tech} className="text-[10px] font-bold px-2 py-1 bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-400 rounded-md">
                           {tech}
                         </span>
                       ))}
                     </div>
                   </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* Right Side: Education */}
+          <div>
+            <div className="flex items-center gap-4 mb-10">
+              <div className="p-3 bg-emerald-100 dark:bg-emerald-900/30 rounded-2xl">
+                <FaGraduationCap className="text-2xl text-emerald-600" />
+              </div>
+              <h3 className="text-2xl font-bold dark:text-white">Education History</h3>
+            </div>
+
+            <div className="space-y-8">
+              {educationData.map((edu, index) => (
+                <motion.div 
+                  key={edu.id}
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  className="group flex gap-6 p-6 bg-white dark:bg-gray-800 rounded-3xl border border-gray-100 dark:border-gray-700 hover:shadow-lg transition-all"
+                >
+                  <div className={`w-14 h-14 shrink-0 rounded-2xl bg-gradient-to-br ${edu.color} flex items-center justify-center text-white text-2xl shadow-lg group-hover:scale-110 transition-transform`}>
+                    {edu.icon}
+                  </div>
+                  <div>
+                    <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-widest">
+                      {edu.duration}
+                    </span>
+                    <h4 className="text-xl font-bold text-gray-900 dark:text-white mt-1">
+                      {edu.degree}
+                    </h4>
+                    <p className="text-gray-600 dark:text-gray-400 font-medium">
+                      {edu.institution}
+                    </p>
+                    <div className="flex items-center gap-2 mt-2 text-gray-400 text-sm">
+                      <FaMapMarkerAlt className="text-xs" />
+                      {edu.location}
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+
+              {/* Training / Certifications Card */}
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                className="mt-10 p-8 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-[2.5rem] text-white shadow-2xl relative overflow-hidden"
+              >
+                <FaAward className="absolute -right-4 -bottom-4 text-9xl text-white/10 rotate-12" />
+                <h4 className="text-2xl font-bold mb-4 flex items-center gap-2">
+                  <FaAward className="text-yellow-400" /> Certifications
+                </h4>
+                <div className="space-y-4 relative z-10">
+                  <div className="pb-3 border-b border-white/10">
+                    <p className="font-bold">MERN Stack Development</p>
+                    <p className="text-sm text-blue-100">Programming Hero • 2024</p>
+                  </div>
+                  <div>
+                    <p className="font-bold">Advanced Backend Specialization</p>
+                    <p className="text-sm text-blue-100">Industrial Level Project Training • 2024</p>
+                  </div>
                 </div>
               </motion.div>
-            ))}
+            </div>
           </div>
-        </motion.div>
 
-        {/* Education & Certifications (Remaining unchanged with dark mode support) */}
+        </div>
       </div>
     </section>
   );

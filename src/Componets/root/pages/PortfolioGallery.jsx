@@ -144,285 +144,157 @@ const PortfolioGallery = () => {
   const getSkillIcon = (id) => skills.find(s => s.id === id)?.icon || FaCode;
 
   return (
-    <section id="projects" className="w-full py-6 lg:py-8 
-             bg-gradient-to-br from-gray-50 to-blue-50/30 
-             dark:from-gray-900">
+    <section id="projects" className="w-full py-12 lg:py-20 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-       <motion.div
-  initial={{ y: 50, opacity: 0 }}
-  whileInView={{ y: 0, opacity: 1 }}
-  viewport={{ once: true }}
-  transition={{ duration: 0.6 }}
-  className="text-center mb-16"
->
-  <h2 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-4">
-    Featured Projects
-  </h2>
-  <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-6">
-    Explore my work across different technologies and categories
-  </p>
-  <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full"></div>
-</motion.div>
-
-
-     <div className="mb-12 space-y-8">
-  {/* Search */}
-  <motion.div
-    initial={{ y: 30, opacity: 0 }}
-    whileInView={{ y: 0, opacity: 1 }}
-    viewport={{ once: true }}
-    transition={{ delay: 0.1 }}
-    className="relative max-w-2xl mx-auto"
-  >
-    <FaSearch className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 dark:text-gray-300 w-5 h-5"/>
-    <input 
-      type="text" 
-      placeholder="Search projects..." 
-      value={searchTerm} 
-      onChange={e => setSearchTerm(e.target.value)}
-      className="w-full pl-12 pr-4 py-4 bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 focus:border-blue-500 focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 text-gray-800 dark:text-gray-100 transition-all duration-300"
-    />
-  </motion.div>
-
-  {/* Category Filter */}
-  <motion.div
-    initial={{ y: 30, opacity: 0 }}
-    whileInView={{ y: 0, opacity: 1 }}
-    viewport={{ once: true }}
-    transition={{ delay: 0.2 }}
-  >
-    <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-4 flex items-center gap-2">
-      <FaFilter className="text-blue-500"/> Filter by Category
-    </h3>
-    <div className="flex flex-wrap justify-center gap-4">
-      {categories.map(c => {
-        const Icon = c.icon;
-        return (
-          <motion.button 
-            key={c.id} 
-            onClick={() => !c.disabled && setActiveCategory(c.id)}
-            whileHover={{ scale: c.disabled ? 1 : 1.05 }} 
-            whileTap={{ scale: c.disabled ? 1 : 0.95 }} 
-            disabled={c.disabled}
-            className={`relative px-6 py-4 rounded-2xl font-semibold transition-all duration-300 flex items-center gap-3 min-w-[140px] ${
-              activeCategory === c.id 
-                ? `bg-gradient-to-r ${c.color} text-white shadow-lg` 
-                : c.disabled 
-                  ? "bg-gray-100 dark:bg-gray-700 text-gray-400 cursor-not-allowed" 
-                  : "bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 shadow-md hover:shadow-lg border border-gray-200 dark:border-gray-700"
-            }`}
-          >
-            <Icon className="w-5 h-5"/>
-            <span>{c.name}</span>
-            <span className={`text-sm px-2 py-1 rounded-full ${
-              activeCategory === c.id 
-                ? "bg-white/20" 
-                : c.disabled 
-                  ? "bg-gray-200 dark:bg-gray-600" 
-                  : "bg-gray-100 dark:bg-gray-700"
-            }`}>
-              {projects.filter(p => c.id === "all" ? true : p.category === c.id).length}
-            </span>
-          </motion.button>
-        );
-      })}
-    </div>
-  </motion.div>
-
-  {/* Skill Filter & Sort */}
-  <motion.div
-    initial={{ y: 30, opacity: 0 }}
-    whileInView={{ y: 0, opacity: 1 }}
-    viewport={{ once: true }}
-    transition={{ delay: 0.3 }}
-  >
-    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4">
-      <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200 flex items-center gap-2">
-        <FaCode className="text-green-500"/> Filter by Technology
-      </h3>
-      <div className="flex items-center gap-4">
-        <select 
-          value={sortBy} 
-          onChange={e => setSortBy(e.target.value)} 
-          className="px-4 py-2 bg-white dark:bg-gray-800 rounded-xl shadow-md border border-gray-200 dark:border-gray-700 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 dark:focus:ring-blue-900 text-gray-800 dark:text-gray-100"
+        
+        {/* Header Section */}
+        <motion.div
+          initial={{ y: 50, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
         >
-          <option value="featured">Featured First</option>
-          <option value="name">Alphabetical</option>
-        </select>
-        {(activeCategory !== "all" || activeSkills.length > 0 || searchTerm) && (
-          <button 
-            onClick={clearFilters} 
-            className="px-4 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 rounded-xl font-medium hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
-          >
-            Clear All
-          </button>
-        )}
-      </div>
-    </div>
-    <div className="flex flex-wrap gap-3">
-      {skills.map(s => (
-        <motion.button 
-          key={s.id} 
-          onClick={() => toggleSkill(s.id)} 
-          whileHover={{ scale: 1.05 }} 
-          whileTap={{ scale: 0.95 }} 
-          className={`px-4 py-3 rounded-xl font-medium transition-all duration-300 flex items-center gap-2 border ${
-            activeSkills.includes(s.id) 
-              ? "bg-blue-500 text-white border-blue-500 shadow-lg" 
-              : "bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-200 border-gray-200 dark:border-gray-700 shadow-md hover:shadow-lg"
-          }`}
-        >
-          <s.icon className={`w-5 h-5 ${activeSkills.includes(s.id) ? "text-white" : s.color}`}/> {s.name}
-        </motion.button>
-      ))}
-    </div>
-  </motion.div>
-</div>
+          <h2 className="text-4xl md:text-6xl font-extrabold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-4">
+            My Creative Works
+          </h2>
+          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+            A showcase of my recent projects featuring Full Stack and Frontend excellence.
+          </p>
+        </motion.div>
 
+        {/* Filters Panel */}
+        <div className="mb-12 space-y-8 bg-white dark:bg-gray-800 p-6 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-700">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            {/* Search */}
+            <div className="relative">
+              <FaSearch className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
+              <input 
+                type="text" 
+                placeholder="Search by title or tech..." 
+                value={searchTerm} 
+                onChange={e => setSearchTerm(e.target.value)}
+                className="w-full pl-12 pr-4 py-3 bg-gray-50 dark:bg-gray-900 rounded-xl border-none focus:ring-2 focus:ring-blue-500 text-gray-700 dark:text-gray-200"
+              />
+            </div>
+
+            {/* Sort & Clear */}
+            <div className="flex flex-wrap items-center gap-4 justify-end">
+              <select 
+                value={sortBy} 
+                onChange={e => setSortBy(e.target.value)} 
+                className="px-4 py-2.5 bg-gray-50 dark:bg-gray-900 rounded-xl border-none text-sm font-medium"
+              >
+                <option value="featured">Most Popular</option>
+                <option value="name">A-Z Name</option>
+              </select>
+              <button onClick={clearFilters} className="text-sm text-blue-600 font-semibold hover:underline">Clear Filters</button>
+            </div>
+          </div>
+
+          {/* Categories */}
+          <div className="flex flex-wrap gap-3">
+            {categories.map(c => (
+              <button
+                key={c.id}
+                disabled={c.disabled}
+                onClick={() => setActiveCategory(c.id)}
+                className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold transition-all ${
+                  activeCategory === c.id 
+                  ? `bg-gradient-to-r ${c.color} text-white shadow-lg` 
+                  : "bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200"
+                } ${c.disabled ? "opacity-40 cursor-not-allowed" : ""}`}
+              >
+                <c.icon className="w-4 h-4" /> {c.name}
+              </button>
+            ))}
+          </div>
+        </div>
 
         {/* Projects Grid */}
-       <AnimatePresence mode="wait">
-  <motion.div
-    key={`${activeCategory}-${activeSkills.join(",")}-${searchTerm}-${sortBy}-${currentPage}`}
-    initial={{ opacity: 0 }}
-    animate={{ opacity: 1 }}
-    exit={{ opacity: 0 }}
-    transition={{ duration: 0.3 }}
-    className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 mb-12"
-  >
-    {currentProjects.map((p, idx) => {
-      const SkillIcon = getSkillIcon;
-      return (
-        <motion.div
-          key={p.id}
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: idx * 0.1 }}
-          className="bg-white dark:bg-gray-800 rounded-3xl shadow-xl dark:shadow-gray-900 overflow-hidden hover:shadow-2xl transition-all duration-500 group"
-        >
-          <div className="relative overflow-hidden">
-            <img
-              src={p.image}
-              alt={p.title}
-              className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
-            />
-            {p.featured && (
-              <div className="absolute top-4 left-4 bg-gradient-to-r from-yellow-500 to-amber-500 text-white px-3 py-1 rounded-full text-sm font-semibold flex items-center gap-1">
-                <FaStar className="w-3 h-3" /> Featured
-              </div>
-            )}
-            <div className="absolute inset-0 bg-black/50 dark:bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
-              <motion.a
-                href={p.demo}
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.1 }}
-                className="bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-200 p-3 rounded-full hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors"
+        <AnimatePresence mode="wait">
+          <motion.div
+            layout
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
+            {currentProjects.map((p) => (
+              <motion.div
+                key={p.id}
+                layout
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                className="group relative bg-white dark:bg-gray-800 rounded-[2.5rem] overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 dark:border-gray-700"
               >
-                <FaExternalLinkAlt className="w-5 h-5" />
-              </motion.a>
-              <motion.a
-                href={p.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.1 }}
-                className="bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-200 p-3 rounded-full hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors"
-              >
-                <FaGithub className="w-5 h-5" />
-              </motion.a>
-            </div>
+                {/* Responsive Image Container */}
+                <div className="relative aspect-video overflow-hidden bg-gray-200 dark:bg-gray-700">
+                  <img
+                    src={p.image}
+                    alt={p.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
+                    <a href={p.demo} target="_blank" rel="noreferrer" className="p-4 bg-white text-blue-600 rounded-full hover:scale-110 transition-transform"><FaExternalLinkAlt /></a>
+                    <a href={p.github} target="_blank" rel="noreferrer" className="p-4 bg-gray-900 text-white rounded-full hover:scale-110 transition-transform"><FaGithub /></a>
+                  </div>
+                  {p.featured && (
+                    <div className="absolute top-4 right-4 bg-amber-400 text-black text-[10px] font-black uppercase px-3 py-1 rounded-full flex items-center gap-1 shadow-lg">
+                      <FaStar /> Featured
+                    </div>
+                  )}
+                </div>
+
+                {/* Content */}
+                <div className="p-8">
+                  <div className="flex justify-between items-start mb-3">
+                    <span className={`text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-md ${p.category === 'fullstack' ? 'bg-purple-100 text-purple-600' : 'bg-green-100 text-green-600'}`}>
+                      {p.category}
+                    </span>
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-3 group-hover:text-blue-600 transition-colors">
+                    {p.title}
+                  </h3>
+                  <p className="text-gray-500 dark:text-gray-400 text-sm mb-6 line-clamp-2">
+                    {p.description}
+                  </p>
+                  
+                  {/* Tech Stack */}
+                  <div className="flex flex-wrap gap-2">
+                    {p.skills.map((skillId) => {
+                      const skill = skills.find(s => s.id === skillId);
+                      const Icon = skill?.icon || FaCode;
+                      return (
+                        <div key={skillId} className={`flex items-center gap-1.5 text-[11px] font-bold ${skill?.color} bg-gray-50 dark:bg-gray-900 px-3 py-1.5 rounded-lg border border-gray-100 dark:border-gray-700`}>
+                          <Icon /> {skill?.name}
+                        </div>
+                      )
+                    })}
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </AnimatePresence>
+
+        {/* Empty State */}
+        {sortedProjects.length === 0 && (
+          <div className="text-center py-20">
+            <div className="text-6xl mb-4">🔍</div>
+            <h3 className="text-2xl font-bold dark:text-white">No matches found</h3>
+            <p className="text-gray-500">Try changing your search keywords or filters.</p>
           </div>
-
-          <div className="p-6">
-            <h3 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-              {p.title}
-            </h3>
-            <p className="text-gray-600 dark:text-gray-300 text-sm mb-4 line-clamp-2">
-              {p.description}
-            </p>
-            <div className="flex flex-wrap gap-2 mb-4">
-              {p.skills.map((skillId, idx) => {
-                const SkillIcon = getSkillIcon(skillId);
-                const skill = skills.find((s) => s.id === skillId);
-                return (
-                  <motion.span
-                    key={idx}
-                    initial={{ scale: 0 }}
-                    whileInView={{ scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: idx * 0.1 }}
-                    className={`px-3 py-1 rounded-full text-xs font-medium flex items-center gap-1 bg-gray-100 dark:bg-gray-700 ${
-                      skill?.color || "text-gray-600 dark:text-gray-200"
-                    }`}
-                  >
-                    <SkillIcon className="w-3 h-3" /> {skill?.name || skillId}
-                  </motion.span>
-                );
-              })}
-            </div>
-            <div className="flex justify-between items-center pt-4 border-t border-gray-200 dark:border-gray-700">
-              <span
-                className={`px-3 py-1 rounded-full text-xs font-semibold ${
-                  p.category === "frontend"
-                    ? "bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300"
-                    : "bg-purple-100 dark:bg-purple-900 text-purple-700 dark:text-purple-300"
-                }`}
-              >
-                {p.category === "frontend" ? "Frontend" : "Full Stack"}
-              </span>
-              <motion.a
-                href={p.demo}
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.05 }}
-                className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 text-sm font-medium flex items-center gap-1"
-              >
-                Demo <FaExternalLinkAlt className="w-3 h-3" />
-              </motion.a>
-            </div>
-          </div>
-        </motion.div>
-      );
-    })}
-  </motion.div>
-</AnimatePresence>
-
-
-      {/* No Projects */}
-{sortedProjects.length === 0 && (
-  <motion.div
-    initial={{ opacity: 0 }}
-    animate={{ opacity: 1 }}
-    className="text-center py-16"
-  >
-    <div className="w-24 h-24 bg-gray-100 dark:bg-gray-700 rounded-full flex items-center justify-center mx-auto mb-6">
-      <FaSearch className="w-10 h-10 text-gray-400 dark:text-gray-300" />
-    </div>
-    <h3 className="text-2xl font-bold text-gray-600 dark:text-gray-200 mb-2">
-      No projects found
-    </h3>
-    <p className="text-gray-500 dark:text-gray-400 mb-6">
-      Try adjusting your filters or search terms
-    </p>
-    <button
-      onClick={clearFilters}
-      className="px-6 py-3 bg-blue-500 dark:bg-blue-600 text-white rounded-xl font-semibold hover:bg-blue-600 dark:hover:bg-blue-700 transition-colors"
-    >
-      Clear All Filters
-    </button>
-  </motion.div>
-)}
+        )}
 
         {/* Pagination */}
-        {sortedProjects.length > 0 && (
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5 }} className="flex flex-col sm:flex-row items-center justify-between gap-4 mt-8">
-            <div className="text-gray-600 text-sm">Showing {startIndex + 1}-{Math.min(startIndex + projectsPerPage, sortedProjects.length)} of {sortedProjects.length} projects</div>
-            <div className="flex items-center gap-4">
-              <motion.button onClick={prevPage} disabled={currentPage===0} className={`flex items-center gap-2 px-4 py-2 rounded-xl font-medium transition-all duration-300 ${currentPage===0 ? "bg-gray-100 text-gray-400 cursor-not-allowed" : "bg-blue-500 text-white hover:bg-blue-600 shadow-lg"}`}><FaArrowLeft className="w-4 h-4"/> Previous</motion.button>
-              <div className="flex gap-2">{Array.from({length: totalPages}, (_, i) => <motion.button key={i} onClick={() => setCurrentPage(i)} className={`w-10 h-10 rounded-xl font-medium transition-all duration-300 ${currentPage===i ? "bg-blue-500 text-white shadow-lg" : "bg-gray-100 text-gray-600 hover:bg-gray-200"}`}>{i+1}</motion.button>)}</div>
-              <motion.button onClick={nextPage} disabled={currentPage===totalPages-1} className={`flex items-center gap-2 px-4 py-2 rounded-xl font-medium transition-all duration-300 ${currentPage===totalPages-1 ? "bg-gray-100 text-gray-400 cursor-not-allowed" : "bg-blue-500 text-white hover:bg-blue-600 shadow-lg"}`}>Next <FaArrowRight className="w-4 h-4"/></motion.button>
-            </div>
-          </motion.div>
+        {totalPages > 1 && (
+          <div className="mt-16 flex justify-center items-center gap-4">
+            <button onClick={prevPage} disabled={currentPage === 0} className="p-3 bg-white dark:bg-gray-800 rounded-full shadow-md disabled:opacity-30">
+              <FaArrowLeft />
+            </button>
+            <span className="font-bold text-gray-700 dark:text-gray-300">Page {currentPage + 1} of {totalPages}</span>
+            <button onClick={nextPage} disabled={currentPage === totalPages - 1} className="p-3 bg-white dark:bg-gray-800 rounded-full shadow-md disabled:opacity-30">
+              <FaArrowRight />
+            </button>
+          </div>
         )}
       </div>
     </section>

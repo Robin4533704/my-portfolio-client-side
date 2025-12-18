@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion"; // শুধু motion ইম্পোর্ট করা হয়েছে
+import { motion, AnimatePresence } from "framer-motion";
 import useAxios from "../hook/useAxios";
 import Loading from "./Loading";
 import { 
@@ -12,7 +12,8 @@ import {
   FaFacebook,
   FaPaperPlane,
   FaCheckCircle,
-  FaExclamationCircle
+  FaExclamationCircle,
+  FaClock
 } from "react-icons/fa";
 
 const Contact = () => {
@@ -32,35 +33,15 @@ const Contact = () => {
       await sendRequest("/contact", "POST", form);
       setForm({ name: "", email: "", subject: "", message: "" });
     } catch (err) {
-      console.error(err);
+      console.error("Submission Error:", err);
     }
   };
 
   const socialLinks = [
-    {
-      name: "LinkedIn",
-      icon: FaLinkedin,
-      url: "https://www.linkedin.com/in/hossain-robin-408a21339",
-      color: "text-blue-600 hover:bg-blue-600"
-    },
-    {
-      name: "GitHub",
-      icon: FaGithub,
-      url: "https://github.com/robinhossen",
-      color: "text-gray-700 hover:bg-gray-700"
-    },
-    {
-      name: "Twitter",
-      icon: FaTwitter,
-      url: "https://twitter.com/robinhossen",
-      color: "text-blue-400 hover:bg-blue-400"
-    },
-    {
-      name: "Facebook",
-      icon: FaFacebook,
-      url: "https://facebook.com/robinhossen",
-      color: "text-blue-600 hover:bg-blue-600"
-    }
+    { name: "LinkedIn", icon: FaLinkedin, url: "https://www.linkedin.com/in/robinhossen4533", color: "hover:bg-blue-600" },
+    { name: "GitHub", icon: FaGithub, url: "https://github.com/robinhossen", color: "hover:bg-gray-800" },
+    { name: "Twitter", icon: FaTwitter, url: "https://twitter.com/robinhossen", color: "hover:bg-blue-400" },
+    { name: "Facebook", icon: FaFacebook, url: "https://facebook.com/robinhossen", color: "hover:bg-blue-700" }
   ];
 
   const contactInfo = [
@@ -69,325 +50,226 @@ const Contact = () => {
       label: "Email Address",
       value: "robinhossen8428@gmail.com",
       link: "mailto:robinhossen8428@gmail.com",
-      color: "text-red-500 bg-red-50 border-red-200"
+      bgColor: "bg-red-50 dark:bg-red-900/20",
+      iconColor: "text-red-500"
     },
     {
       icon: FaPhone,
       label: "Phone Number",
-      value: "+880 1866-610742",
-      link: "tel:+8801866610742",
-      color: "text-green-500 bg-green-50 border-green-200"
+      value: "+880 1969-453361",
+      link: "tel:+8801969453361",
+      bgColor: "bg-green-50 dark:bg-green-900/20",
+      iconColor: "text-green-500"
     },
     {
       icon: FaMapMarkerAlt,
       label: "Location",
-      value: "Comilla, Chattogram, Bangladesh",
-      link: "https://maps.google.com/?q=Comilla,Chattogram,Bangladesh",
-      color: "text-purple-500 bg-purple-50 border-purple-200"
+      value: "Cumilla, Chattogram, Bangladesh",
+      link: "https://maps.google.com/?q=Cumilla,Bangladesh",
+      bgColor: "bg-purple-50 dark:bg-purple-900/20",
+      iconColor: "text-purple-500"
     }
   ];
 
   return (
-    <section id="contact" className="w-full bg-gradient-to-br from-gray-50 dark:from-gray-900 to-blue-50/20 dark:to-gray-800 py-6 lg:py-8">
+    <section id="contact" className="w-full bg-gray-50 dark:bg-gray-900 py-20 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
         <motion.div
-          initial={{ y: 50, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-         <h2 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-4">
-      Get In Touch
-    </h2>
-    <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-6">
-      Let's discuss your project and bring your ideas to life
-    </p>
-             <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full"></div>
-  </motion.div>
-
-  <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
-          
-          {/* Contact Information */}
-    <motion.div
-      initial={{ x: -50, opacity: 0 }}
-      whileInView={{ x: 0, opacity: 1 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6 }}
-      className="space-y-8"
-    >
-      {/* Introduction */}
-      <div className="bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-xl border border-gray-200/50 dark:border-gray-700/50">
-        <h3 className="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-4">
-          Let's Work Together
-        </h3>
-        <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
-          I'm always interested in new opportunities and exciting projects. 
-          Whether you need a full-stack application, a responsive website, 
-          or technical consultation, I'd love to hear from you.
-        </p>
-        <div className="bg-blue-50 dark:bg-blue-900/30 rounded-2xl p-6 border border-blue-200 dark:border-blue-700">
-          <p className="text-blue-700 dark:text-blue-300 font-medium">
-            💡 Typically reply within 2-4 hours
+          <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-4">
+            Get In <span className="text-blue-600">Touch</span>
+          </h2>
+          <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto text-lg">
+            Have a project in mind or just want to say hi? Feel free to reach out. I'm always open to discussing new opportunities.
           </p>
-        </div>
-      </div>
-
-
-           {/* Contact Details */}
-      <div className="space-y-4">
-        {contactInfo.map((item, index) => {
-          const IconComponent = item.icon;
-          return (
-            <motion.a
-              key={index}
-              href={item.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              initial={{ x: -30, opacity: 0 }}
-              whileInView={{ x: 0, opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              whileHover={{ scale: 1.02, x: 5 }}
-              className={`flex items-center gap-4 p-6 rounded-2xl border-2 transition-all duration-300 hover:shadow-lg ${item.color} bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700`}
-            >
-              <div className="flex-shrink-0">
-                <IconComponent className="w-6 h-6 text-gray-800 dark:text-gray-100" />
-              </div>
-              <div className="flex-grow">
-                <p className="font-semibold text-gray-800 dark:text-gray-100">{item.label}</p>
-                <p className="text-gray-600 dark:text-gray-300">{item.value}</p>
-              </div>
-            </motion.a>
-          );
-        })}
-      </div>
-
-      {/* Social Links */}
-      <motion.div
-        initial={{ y: 30, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.4 }}
-        className="bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-xl border border-gray-200/50 dark:border-gray-700/50"
-      >
-        <h4 className="text-xl font-bold text-gray-800 dark:text-gray-100 mb-6 text-center">
-          Follow Me On
-        </h4>
-        <div className="flex justify-center gap-4">
-          {socialLinks.map((social, index) => {
-            const IconComponent = social.icon;
-            return (
-              <motion.a
-                key={index}
-                href={social.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                initial={{ scale: 0 }}
-                whileInView={{ scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.5 + index * 0.1 }}
-                whileHover={{ scale: 1.1, y: -2 }}
-                className={`w-12 h-12 rounded-2xl bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 flex items-center justify-center transition-all duration-300 hover:text-white hover:shadow-lg ${social.color}`}
-              >
-                <IconComponent className="w-5 h-5" />
-              </motion.a>
-            );
-          })}
-        </div>
-      </motion.div>
-    </motion.div>
-
-    {/* Contact Form */}
-    <motion.div
-      initial={{ x: 50, opacity: 0 }}
-      whileInView={{ x: 0, opacity: 1 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6 }}
-      className="bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-xl border border-gray-200/50 dark:border-gray-700/50"
-    >
-      <h3 className="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-2">
-        Send Me a Message
-      </h3>
-      <p className="text-gray-600 dark:text-gray-300 mb-8">
-        Fill out the form below and I'll get back to you as soon as possible.
-      </p>
-
-      <form onSubmit={handleSubmit} className="space-y-6">
-        {/* Name & Email Row */}
-        <div className="grid sm:grid-cols-2 gap-6">
-          <div>
-            <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-              Full Name *
-            </label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              value={form.name}
-              onChange={handleChange}
-              required
-              placeholder="Your full name"
-              className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 outline-none text-gray-900 dark:text-gray-100"
-            />
-          </div>
-
-          <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-              Email Address *
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={form.email}
-              onChange={handleChange}
-              required
-              placeholder="your.email@example.com"
-              className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 outline-none text-gray-900 dark:text-gray-100"
-            />
-          </div>
-        </div>
-
-
-             {/* Subject Field */}
-        <div>
-          <label htmlFor="subject" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-            Subject *
-          </label>
-          <input
-            type="text"
-            id="subject"
-            name="subject"
-            value={form.subject}
-            onChange={handleChange}
-            required
-            placeholder="What's this about?"
-            className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 outline-none text-gray-900 dark:text-gray-100"
-          />
-        </div>
-
-        {/* Message Field */}
-        <div>
-          <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-            Message *
-          </label>
-          <textarea
-            id="message"
-            name="message"
-            value={form.message}
-            onChange={handleChange}
-            required
-            rows={6}
-            placeholder="Tell me about your project, timeline, and requirements..."
-            className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 outline-none text-gray-900 dark:text-gray-100 resize-none"
-          />
-        </div>
-
-        {/* Submit Button */}
-        <motion.button
-          type="submit"
-          disabled={loading}
-          whileHover={{ scale: loading ? 1 : 1.02 }}
-          whileTap={{ scale: loading ? 1 : 0.98 }}
-          className="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold py-4 px-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3"
-        >
-          {loading ? (
-            <>
-              <Loading />
-              <span>Sending Message...</span>
-            </>
-          ) : (
-            <>
-              <FaPaperPlane className="w-4 h-4" />
-              <span>Send Message</span>
-            </>
-          )}
-        </motion.button>
-
-            
-
-              {/* Status Messages - AnimatePresence ছাড়া সরল version */}
-              <div>
-                {error && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="flex items-center gap-3 p-4 bg-red-50 border border-red-200 rounded-xl text-red-700"
-                  >
-                    <FaExclamationCircle className="w-5 h-5 flex-shrink-0" />
-                    <div>
-                      <p className="font-medium">Error sending message</p>
-                      <p className="text-sm">{error.message}</p>
-                    </div>
-                  </motion.div>
-                )}
-
-                {data && !loading && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="flex items-center gap-3 p-4 bg-green-50 border border-green-200 rounded-xl text-green-700"
-                  >
-                    <FaCheckCircle className="w-5 h-5 flex-shrink-0" />
-                    <div>
-                      <p className="font-medium">Message sent successfully!</p>
-                      <p className="text-sm">I'll get back to you within 2-4 hours.</p>
-                    </div>
-                  </motion.div>
-                )}
-              </div>
-            </form>
-
-            {/* Privacy Note */}
-            <motion.p
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.8 }}
-              className="text-center text-gray-500 text-sm mt-6"
-            >
-              Your information is secure. I respect your privacy and will never share your details.
-            </motion.p>
-          </motion.div>
-        </div>
-
-        {/* Call to Action */}
-        <motion.div
-          initial={{ y: 30, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.6 }}
-          className="text-center mt-16"
-        >
-         <div className="bg-gradient-to-r from-blue-500 to-purple-600 dark:from-blue-700 dark:to-purple-700 rounded-3xl p-8 text-white shadow-2xl">
-  <h3 className="text-2xl font-bold mb-4">Ready to Start Your Project?</h3>
-  <p className="text-blue-100 dark:text-blue-200 mb-6 max-w-2xl mx-auto">
-    Let's schedule a call to discuss your requirements and how I can help bring your vision to life.
-  </p>
-  <div className="flex flex-col sm:flex-row gap-4 justify-center">
-    <motion.a
-      href="mailto:robinhossen8428@gmail.com"
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
-      className="bg-white dark:bg-gray-800 dark:text-blue-400 text-blue-600 px-8 py-3 rounded-xl font-semibold hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors shadow-lg"
-    >
-      Schedule a Call
-    </motion.a>
-    <motion.a
-      href="tel:+8801866610742"
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
-      className="border-2 border-white dark:border-gray-400 text-white dark:text-gray-200 px-8 py-3 rounded-xl font-semibold hover:bg-white dark:hover:bg-gray-600 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-    >
-      Call Now
-    </motion.a>
-  </div>
-</div>
-
+          <div className="mt-4 w-20 h-1.5 bg-blue-600 mx-auto rounded-full"></div>
         </motion.div>
+
+        <div className="grid lg:grid-cols-5 gap-12 items-start">
+          
+          {/* Left Side: Contact Info (2/5) */}
+          <div className="lg:col-span-2 space-y-8">
+            <div className="bg-white dark:bg-gray-800 rounded-[2rem] p-8 shadow-sm border border-gray-100 dark:border-gray-700">
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-3">
+                Contact Information
+              </h3>
+              
+              <div className="space-y-6">
+                {contactInfo.map((item, index) => (
+                  <motion.a
+                    key={index}
+                    href={item.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-5 p-4 rounded-2xl hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-all group"
+                  >
+                    <div className={`w-12 h-12 rounded-xl ${item.bgColor} ${item.iconColor} flex items-center justify-center text-xl shrink-0 group-hover:scale-110 transition-transform`}>
+                      <item.icon />
+                    </div>
+                    <div>
+                      <p className="text-xs font-bold text-gray-400 uppercase tracking-wider">{item.label}</p>
+                      <p className="text-gray-700 dark:text-gray-200 font-medium break-all">{item.value}</p>
+                    </div>
+                  </motion.a>
+                ))}
+              </div>
+
+              {/* Response Time Badge */}
+              <div className="mt-8 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-2xl border border-blue-100 dark:border-blue-800 flex items-center gap-3">
+                <FaClock className="text-blue-600 animate-pulse" />
+                <p className="text-sm text-blue-700 dark:text-blue-300 font-medium">
+                  Average response time: 2-4 hours
+                </p>
+              </div>
+            </div>
+
+            {/* Social Links Card */}
+            <div className="bg-white dark:bg-gray-800 rounded-[2rem] p-8 shadow-sm border border-gray-100 dark:border-gray-700 text-center">
+              <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-6">Social Profiles</h4>
+              <div className="flex justify-center gap-4">
+                {socialLinks.map((social, index) => (
+                  <motion.a
+                    key={index}
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ y: -5 }}
+                    className={`w-12 h-12 rounded-xl bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-gray-600 dark:text-gray-300 transition-all ${social.color} hover:text-white shadow-sm`}
+                  >
+                    <social.icon size={20} />
+                  </motion.a>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Right Side: Contact Form (3/5) */}
+          <div className="lg:col-span-3">
+            <motion.div 
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              className="bg-white dark:bg-gray-800 rounded-[2.5rem] p-8 md:p-12 shadow-sm border border-gray-100 dark:border-gray-700"
+            >
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <label className="text-sm font-bold text-gray-700 dark:text-gray-300 ml-1">Full Name</label>
+                    <input
+                      type="text"
+                      name="name"
+                      value={form.name}
+                      onChange={handleChange}
+                      required
+                      placeholder="John Doe"
+                      className="w-full px-5 py-4 bg-gray-50 dark:bg-gray-900/50 border border-gray-200 dark:border-gray-700 rounded-2xl focus:ring-2 focus:ring-blue-500 outline-none transition-all dark:text-white"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-sm font-bold text-gray-700 dark:text-gray-300 ml-1">Email Address</label>
+                    <input
+                      type="email"
+                      name="email"
+                      value={form.email}
+                      onChange={handleChange}
+                      required
+                      placeholder="example@mail.com"
+                      className="w-full px-5 py-4 bg-gray-50 dark:bg-gray-900/50 border border-gray-200 dark:border-gray-700 rounded-2xl focus:ring-2 focus:ring-blue-500 outline-none transition-all dark:text-white"
+                    />
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <label className="text-sm font-bold text-gray-700 dark:text-gray-300 ml-1">Subject</label>
+                  <input
+                    type="text"
+                    name="subject"
+                    value={form.subject}
+                    onChange={handleChange}
+                    required
+                    placeholder="How can I help you?"
+                    className="w-full px-5 py-4 bg-gray-50 dark:bg-gray-900/50 border border-gray-200 dark:border-gray-700 rounded-2xl focus:ring-2 focus:ring-blue-500 outline-none transition-all dark:text-white"
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <label className="text-sm font-bold text-gray-700 dark:text-gray-300 ml-1">Message</label>
+                  <textarea
+                    name="message"
+                    value={form.message}
+                    onChange={handleChange}
+                    required
+                    rows={5}
+                    placeholder="Tell me about your project..."
+                    className="w-full px-5 py-4 bg-gray-50 dark:bg-gray-900/50 border border-gray-200 dark:border-gray-700 rounded-2xl focus:ring-2 focus:ring-blue-500 outline-none transition-all dark:text-white resize-none"
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-2xl shadow-lg shadow-blue-200 dark:shadow-none transition-all flex items-center justify-center gap-3 disabled:opacity-70"
+                >
+                  {loading ? (
+                    <><Loading /> <span>Sending...</span></>
+                  ) : (
+                    <><FaPaperPlane /> <span>Send Message</span></>
+                  )}
+                </button>
+
+                {/* Status Notifications */}
+                <AnimatePresence>
+                  {error && (
+                    <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }} className="p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-2xl text-red-600 dark:text-red-400 flex items-center gap-3">
+                      <FaExclamationCircle className="shrink-0" />
+                      <p className="text-sm font-medium">{error.message || "Failed to send message. Try again."}</p>
+                    </motion.div>
+                  )}
+                  
+                  {data && !loading && (
+                    <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0 }} className="p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-2xl text-green-600 dark:text-green-400 flex items-center gap-3">
+                      <FaCheckCircle className="shrink-0" size={20} />
+                      <div>
+                        <p className="font-bold">Message Sent!</p>
+                        <p className="text-xs">Thank you, I'll get back to you shortly.</p>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </form>
+            </motion.div>
+          </div>
+        </div>
+
+        {/* CTA Bottom Section */}
+        {/* <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          className="mt-20 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-[3rem] p-10 md:p-16 text-center text-white relative overflow-hidden shadow-2xl"
+        >
+          <div className="relative z-10">
+            <h3 className="text-3xl md:text-4xl font-bold mb-4">Let's build something amazing together!</h3>
+            <p className="text-blue-100 mb-8 max-w-xl mx-auto text-lg">
+              Currently available for freelance work and full-time positions.
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <a href="mailto:robinhossen8428@gmail.com" className="bg-white text-blue-600 px-8 py-4 rounded-2xl font-bold hover:bg-blue-50 transition-colors">
+                Start a Project
+              </a>
+              <a href="tel:+8801969453361" className="bg-transparent border-2 border-white/30 hover:border-white text-white px-8 py-4 rounded-2xl font-bold transition-all">
+                Call Now
+              </a>
+            </div>
+          </div>
+          {/* Decorative Circles */}
+          <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -mr-32 -mt-32"></div>
+          <div className="absolute bottom-0 left-0 w-64 h-64 bg-black/5 rounded-full -ml-32 -mb-32"></div>
+        {/* </motion.div>  */}
       </div>
     </section>
   );
