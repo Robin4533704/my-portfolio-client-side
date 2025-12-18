@@ -30,7 +30,7 @@ const projects = [
     skills: ["react", "javascript", "tailwind"],
     image: "/Screenshot 2025-11-14 231349.png",
     description: "Modern portfolio with smooth animations and responsive design.",
-    demo: "https://warm-gumption-ab7e7e.netlify.app",
+    demo: "https://endearing-lokum-c98a52.netlify.app",
     github: "https://github.com/Robin4533704/my-portfolio-client-side.git",
     featured: false
   },

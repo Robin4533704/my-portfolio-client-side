@@ -61,7 +61,7 @@ const Banner = () => {
   // রেজুমের লিঙ্ক অনুযায়ী আপডেট করা হয়েছে
   const socialLinks = [
     { icon: FaGithub, href: "https://github.com/robin-hossen", color: "hover:text-gray-400", label: "GitHub" },
-    { icon: FaLinkedin, href: "https://www.linkedin.com/in/hossainrobin", color: "hover:text-blue-400", label: "LinkedIn" },
+    { icon: FaLinkedin, href: "https://www.linkedin.com/in/robinhossen4533", color: "hover:text-blue-400", label: "LinkedIn" },
     { icon: FaEnvelope, href: "mailto:robinhossen8428@gmail.com", color: "hover:text-red-400", label: "Email" },
   ];
 
